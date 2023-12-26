@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encryption | Decryption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container{
+            max-width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        textarea, select, input[type="submit"] {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        select {
+            background-color: #f9f9f9;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #f3a501;
+            color: #f9f9f9;
+            border: none;
+            padding: 10px ;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 150px;
+            transition: transform 0.4s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5f2d62;
+            transform: translateY(-4px);
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+
+        .card-result{
+            padding: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Secure Cipher - Text Encryption & Decryption</h1>
+    <section>
+        <div class="container">
+            <form method="post">
+            <label for="text">Enter text to encrypt:</label>
+            <textarea name="text" rows="4" cols="50"></textarea>
+            <br>
+            <label for="encryption_type">Select encryption type:</label>
+            <select name="encryption_type">
+                <option value="AES">AES</option>
+                <option value="Caesar">Caesar</option>
+            </select>
+            <br>
+            <input type="submit" value="Encrypt/Decrypt">
+            {% if text %}
+            <div class="card-result">
+                    <h2>Results:</h2>
+                    <p><strong>Encrypted Text ({{ encryption_type }}):</strong> {{ encrypted_text }}</p>
+                    <p><strong>Decrypted Text ({{ encryption_type }}):</strong> {{ decrypted_text }}</p>
+                    {% endif %}
+                    {% if error %}
+                    <p><strong>Error:</strong> {{ error }}</p>
+            </div>
+            </form>
+        </div>
+    </section>
+    {% endif %}
+</body>
+</html>
